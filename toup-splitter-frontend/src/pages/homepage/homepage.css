@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Pacifico&family=Quicksand&family=Qwitcher+Grypen&family=Source+Sans+Pro:wght@200&family=The+Nautigal:wght@700&display=swap');
+
+.mainsection {
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.header {
+    width: 100%;
+    height: 70px;
+    border: 2px solid rgb(171, 169, 169);
+    background: rgb(86,88,89);
+    background: radial-gradient(circle, rgba(86,88,89,1) 19%, rgba(0,0,0,1) 100%);
+    color: white;
+    border-radius: 20px;
+}
+.logo{
+    /* width: 100px; */
+    /* height: 70px; */
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Qwitcher Grypen', cursive;
+    margin-top: -10px;
+    
+}
+.navbar {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bodysection {
+    height: calc(100vh - 70px);
+
+    /* border: 3px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.paidForm {
+    width: 30%;
+    /* border: 3px solid green; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.allTripdetails {
+    width: 70%;
+    /* border: 3px solid purple; */
+}
+
+.mainform {
+    width: 90%;
+    height: 90%;
+    /* border: 5px solid pink; */
+    border-radius: 20px;
+    background-color: rgba(184, 174, 174, 0.219);
+    background: url('../../media/img1.png');
+    background-size: cover;
+    /* border-radius: 20px; */
+    /* background: #e0e0e0; */
+    border-radius: 20px;
+    /* background: #3b3b3b; */
+
+
+    box-shadow: 0 2px 15px rgb(140, 190, 239);
+    backdrop-filter: blur(3.1px);
+    -webkit-backdrop-filter: blur(3.1px);
+
+}
+
+.text {
+    color: #fff;
+
+}
+
+.tagbox {
+    height: 200px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    border: 2px solid dodgerblue;
+    border-radius: 10px;
+    /* box-shadow: 2px 4px 10px dodgerblue,
+    -2px -4px 10px dodgerblue; */
+    /* scroll-snap-type: none; */
+    /* padding-right
+    +3333333: 20px; */
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* ::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+    background: #181717;
+} */
+
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+    background: rgb(235, 231, 231);
+} */
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+    background: rgb(206, 203, 203);
+} */
+
+.selectBox {
+    height: 50px;
+    /* border: 3px solid cyan; */
+    background-color: rgb(224, 221, 221);
+    margin: 10px 10px;
+    -webkit-border-radius: 17px;
+    border-radius: 17px;
+    background: #D1D8EC;
+    /* -webkit-box-shadow: 5px 5px 4px #b6bccd, -5px -5px 4px #ecf4ff; */
+    /* box-shadow: 5px 5px 4px #b6bccd, -5px -5px 4px #ecf4ff; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.selectBox p {
+    padding: 0;
+    margin: 0;
+}
+
+.buttonbox {
+    /* color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.submitbutton {
+    border: none;
+    background-color: dodgerblue;
+    color: rgb(14, 14, 14);
+    font-weight: 500;
+    padding: 10px;
+    width: 100px;
+    border-radius: 30px;
+    /* margin-left: 75%; */
+    transition: .5s;
+    transform: translate(0px, 0px);
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: red;
+    transform-origin: 0%;
+}
+
+
+
+
+/* details page css */
+
+.allTripdetails {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+}
+
+.mainsectionBudget {
+    width: 90%;
+    height: 90%;
+    /* border: 4px solid purple; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+
+.totaltripbudget {
+    width: 80%;
+    height: 50px;
+    text-align: center;
+    border: 3px solid white;
+    background-color: skyblue;
+    font-weight: 600;
+
+    border-radius: 20px;
+}
+
+.cards {
+    height: 80%;
+    width: 100%;
+    /* border: 2px solid white; */
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+
+
+}
+
+.totalIPaid {
+    height: 90%;
+    /* width: 20%; */
+    border: 2px solid rgb(141, 19, 141);
+    background: url('../../media/img5.gif');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerdivtotalIPaid {
+    background-color: #ffffff;
+    width: 90%;
+    height: 90%;
+    opacity: 0.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.totalIHaveToPay {
+    height: 90%;
+    /* width: 20%; */
+    border: 2px solid green;
+    background: url('../../media/img4.gif');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innertotaltopay {
+    background-color: #ffffff;
+    width: 90%;
+    height: 90%;
+    opacity: 0.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.totalIrecieved {
+    height: 90%;
+    /* width: 20%; */
+    border: 2px solid green;
+    background: url('../../media/img3.gif');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerdivtotalIrecieved {
+    background-color: #ffffff;
+    width: 90%;
+    height: 90%;
+    opacity: 0.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.paidToOthers {
+    height: 90%;
+    /* width: 20%; */
+    border: 2px solid green;
+    background: url('../../media/img2.gif');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerdivtotalpaidToOthers {
+    background-color: #ffffff;
+    width: 90%;
+    height: 90%;
+    opacity: 0.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+
+/* css for modals */
+/* first modal or my payments to other's modal --->*/
+.mainmodalbody {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* background-color: aqua; */
+}
+
+.modal-content {
+    background: url('../../media/modalimg1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card {
+    width: 100%;
+    margin: 20px;
+    background-color: rgb(160, 160, 154);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* <-- first modal or my payments to other's modal */
+
+
+/* css for the green and red boxes */
+
+.greenbox {
+    border: 2px solid rgb(44, 205, 44);
+    background-color: greenyellow;
+    padding: 5px 10px;
+    border-radius: 8px;
+
+}
+
+.redbox {
+    border: 2px solid (238, 134, 134);
+    background-color: rgb(238, 134, 134);
+    padding: 5px 10px;
+    border-radius: 8px;
+}

@@ -1,0 +1,17 @@
+.loadingscreen{
+    background: url('../../media//loading.gif');
+    background-size:contain;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    
+    
+}
+.headertextload{
+    color: #fff;
+    margin-bottom: 100px;
+    opacity: 0.6;
+
+}
