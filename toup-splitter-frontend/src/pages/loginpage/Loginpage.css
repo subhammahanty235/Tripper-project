@@ -69,7 +69,7 @@ label{
     position: absolute;
     transform: translate(0 , -25px);
     border-radius: 25px;
-    background-image: url('../../media//travelimage.png');
+    background-image: url('../../media//travelimage.jpg');
     background-size:100% 100%;
     background-repeat: no-repeat;
     
@@ -84,7 +84,7 @@ label{
 }
 @media only screen and (max-width: 600px) {
     body {
-        background-color: lightblue;
+        background-color: black;
     }
     #overlay, #signUp , .overlay1 , .overlay2{
         display: none;

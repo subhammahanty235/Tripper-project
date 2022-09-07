@@ -7,7 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Loadingscreen from './Loadingscreen';
-import Logo from '../../media/logo.png'
+import { MoreVert } from '@mui/icons-material'
+
 
 const Homepage = () => {
     let selectedusers = []
@@ -17,8 +18,9 @@ const Homepage = () => {
     const [tripData, setTripData] = useState({})
     // const [selectedmem, setSelectedMem] = useState(selectedusers);
     const [loading, setLoading] = useState(false)
+    const [menuopen, setmenuOpen] = useState(false);
     const [username, setUserName] = useState("")
-    const [otherUser, setOtherUses] = useState(otherUsers)
+
     const Api_Link = process.env.REACT_APP_BACKEND_URL
 
     const [newtranDetails, setnewtranDetails] = useState({
@@ -52,11 +54,14 @@ const Homepage = () => {
     const getuserdata = async (userid) => {
         const id = await fetch(`${Api_Link}/user/searchdetails/${mydata.expenseDetailstopay.paidBy}`)
         const data = await id.json();
-        
+
         setUserName(data.name)
     }
+    // const openmenu = ()=>{
+    //     setmenuOpen(!openmenu)
+    //     console.log(openmenu)
+    // }
 
-    
     const getMyDetails = async () => {
         setLoading(true)
         const data = await fetch(`${Api_Link}/user/me`, {
@@ -81,7 +86,7 @@ const Homepage = () => {
     }
     const new_Transaction = async () => {
 
-        
+
         const transaction = await fetch(`${Api_Link}/user/new-transaction`, {
             method: "PUT",
             headers: {
@@ -98,17 +103,19 @@ const Homepage = () => {
 
         let res = await transaction.json()
         setnewtranDetails({ expenseTitle: "", amount: 0 })
-        
+
         if (res === true) {
             toast("Sucessfully added")
             toast("Paid sucessfully! Please Refresh")
-            const res =await fetch(`${Api_Link}/sendmail`, {
+            const res = await fetch(`${Api_Link}/sendmail`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ email:mydata.emailId , text: `Transaction added . paid : Payment splitted with : ${selectedusers} , amount : ${newtranDetails.amount} , Transaction date : ${Date.now} , Paid For : ${newtranDetails.expenseTitle
-                })}` })
+                body: JSON.stringify({
+                    email: mydata.emailId, text: `Transaction added . paid : Payment splitted with : ${selectedusers} , amount : ${newtranDetails.amount} , Transaction date : ${Date.now} , Paid For : ${newtranDetails.expenseTitle
+                        })}`
+                })
 
             })
         }
@@ -129,20 +136,8 @@ const Homepage = () => {
             navigate('/login')
         }
     })
-    // const addtoOtherUsers = async () => {
-    //     let len = tripData.users?.length
-    //     for (let i = 0; i < len; i++) {
-    //         let data = await fetch(`http://localhost:5000/api/v1/user/searchdetails/${tripData.users[i]}`, {
-    //             method: "GET"
-    //         });
-    //         data = await data.json()
-    //         //    data ="subham"
-    //         // console.log(data)
-    //         otherUsers.push("subham")
 
-    //         // console.log(otherUsers)
-    //     }
-    // }
+
 
     const pay_bill = async (data) => {
         const transaction = await fetch(`${Api_Link}/user/paymoney`, {
@@ -161,19 +156,21 @@ const Homepage = () => {
         })
 
         let tra = await transaction.json()
-        
+
         if (tra === true) {
             toast("Paid sucessfully! Please Refresh")
-            const res =await fetch(`${Api_Link}/sendmail`, {
+            const res = await fetch(`${Api_Link}/sendmail`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ email:mydata.emailId , text: `Bill paid : Paid To : ${data.paidBy} , amount : ${data.amount} , Transaction date : ${Date.now} , Paid For : ${data.expenseTitle
-                })}` })
+                body: JSON.stringify({
+                    email: mydata.emailId, text: `Bill paid : Paid To : ${data.paidBy} , amount : ${data.amount} , Transaction date : ${Date.now} , Paid For : ${data.expenseTitle
+                        })}`
+                })
 
             })
-            
+
         }
         else {
             toast("Unsucessful! Some error occured")
@@ -183,7 +180,7 @@ const Homepage = () => {
 
     useEffect(() => {
         getMyDetails();
-        
+
         // addtoOtherUsers();
 
         // addtoOtherUsers()
@@ -194,9 +191,9 @@ const Homepage = () => {
     }, [])
 
     return (loading === false ?
-        <div className="mainsection">
+        <div className="mainsection" >
 
-            <div className="header container">
+            {/* <div className="header container">
                 <nav className="navbar">
                     <div className="tripDetails d-flex flex-column mx-3">
                         <p className='tripname p-0 m-0'>Trip Name : {tripData.tripName}</p>
@@ -209,9 +206,36 @@ const Homepage = () => {
                         <button className='btn btn-outline-success btn-sm mx-2' onClick={logOut}>logout</button>
                     </div>
                 </nav>
-            </div>
+            </div> */}
 
-            <div className="bodysection container">
+            <nav className='nav'>
+                <h3 className='logo'><span className='text-light'>T</span>ripper</h3>
+                <h2 className='menu' onClick={() => { setmenuOpen(!menuopen) }}><MoreVert /></h2>
+
+                <div className={`sub-menu-wrap ${menuopen === true ? 'open-menu' : ''}`}>
+                    <div className="sub-menu">
+                        <div className="user-info">
+                            <h5 className="tripname text-center">{tripData.tripName}</h5>
+                            <p className="tripid ">Trip ID : {tripData.tripID}</p>
+                            <p className="tripbudget">Trip Budget : ₹{tripData.budgetTotal}</p>
+                            <hr />
+                            <p className="username">Name : {mydata.name} </p>
+                            <p className="emailid">{mydata.emailId}</p>
+                            <p className="Totalspent">Total Spent :  ₹{mydata.totalAmountpaid}</p>
+                            <hr />
+                           
+                            {/* <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1" checked/>
+                                    <label class="custom-control-label" for="customSwitch1">Change Theme</label>
+                            </div> */}
+                            <button className="btn btn-outline-primary logoutbutton" onClick={logOut}>Log Out</button>
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+
+            <div className="bodysection container" onClick={() => { if (menuopen === true) { setmenuOpen(false) } }}>
                 <div className="paidForm">
                     <div className="mainform">
                         <h5 className='text-center mt-3 text'>Enter Details About Your Payment</h5>
@@ -229,7 +253,7 @@ const Homepage = () => {
                                 <div className="tagbox my-3 my-3">
 
                                     {
-                                    
+
 
                                         tripData.users?.map((user) => {
 
@@ -246,7 +270,7 @@ const Homepage = () => {
                                                 )
 
                                         })
-                                    
+
 
                                     }
                                 </div>
@@ -497,7 +521,7 @@ const Homepage = () => {
 
 
 
-        :<Loadingscreen/>)
+        : <Loadingscreen />)
 }
 
 export default Homepage

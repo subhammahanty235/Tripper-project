@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
-import Loading from '../../media/loading.gif'
+import Loading from '../../media/H0bB.gif'
 import './loadingscreen.css'
 function Loadingscreen() {
     const[quote , setQuote] = useState("")
@@ -20,7 +20,7 @@ function Loadingscreen() {
     },[])
   return (
     <div className="loadingscreen">
-        
+          <img src={Loading} alt="" srcset="" />
          <h5 className='headertextload'>{quote}</h5>
     </div>
    
