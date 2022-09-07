@@ -11,6 +11,10 @@ const UserSchema = new Schema(
             type:String,
             required:true,
         },
+        emailId:{
+            type:String,
+            required:true,
+        },
         tripid:{
             type:String,
             required:true,
@@ -25,6 +29,10 @@ const UserSchema = new Schema(
             default:0
         },
         totalAmountRecieved:{
+            type:Number,
+            default:0
+        },
+        totalAmountPaidToOthers:{
             type:Number,
             default:0
         },
@@ -60,6 +68,11 @@ const UserSchema = new Schema(
                 users:[String],
                 expensetitle:String,
                 amount:Number,
+                date:{
+                    type:Date,
+                    default:Date.now()
+                },
+                returnedMoney:[String]
             }
         ],
 
@@ -89,7 +102,9 @@ const UserSchema = new Schema(
            
 
         ]
+        
     }
+
 )
 
 const User = mongoose.model('users' , UserSchema);
