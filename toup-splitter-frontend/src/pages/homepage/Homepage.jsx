@@ -85,43 +85,48 @@ const Homepage = () => {
         setnewtranDetails({ ...newtranDetails, [e.target.name]: e.target.value })
     }
     const new_Transaction = async () => {
-
-
-        const transaction = await fetch(`${Api_Link}/user/new-transaction`, {
-            method: "PUT",
-            headers: {
-                "auth-token": localStorage.getItem('travel_Bill_splitter-login_details'),
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                expenseTitle: newtranDetails.expenseTitle,
-                users: selectedusers,
-                amount: newtranDetails.amount,
-                tripId: tripData._id
-            })
-        })
-
-        let res = await transaction.json()
-        setnewtranDetails({ expenseTitle: "", amount: 0 })
-
-        if (res === true) {
-            toast("Sucessfully added")
-            toast("Paid sucessfully! Please Refresh")
-            const res = await fetch(`${Api_Link}/sendmail`, {
-                method: 'POST',
+        if(newtranDetails.expenseTitle==="" && newtranDetails.amount===0){
+            toast("Please , Fill those details")
+        }
+        else{
+            const transaction = await fetch(`${Api_Link}/user/new-transaction`, {
+                method: "PUT",
                 headers: {
-                    'Content-Type': 'application/json'
+                    "auth-token": localStorage.getItem('travel_Bill_splitter-login_details'),
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    email: mydata.emailId, text: `Transaction added . paid : Payment splitted with : ${selectedusers} , amount : ${newtranDetails.amount} , Transaction date : ${Date.now} , Paid For : ${newtranDetails.expenseTitle
-                        })}`
+                    expenseTitle: newtranDetails.expenseTitle,
+                    users: selectedusers,
+                    amount: newtranDetails.amount,
+                    tripId: tripData._id
                 })
-
             })
+    
+            let res = await transaction.json()
+            setnewtranDetails({ expenseTitle: "", amount: 0 })
+    
+            if (res === true) {
+                toast("Sucessfully added")
+                toast("Paid sucessfully! Please Refresh")
+                const res = await fetch(`${Api_Link}/sendmail`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: mydata.emailId, text: `Transaction added . paid : Payment splitted with : ${selectedusers} , amount : ${newtranDetails.amount} , Transaction date : ${Date.now} , Paid For : ${newtranDetails.expenseTitle
+                            })}`
+                    })
+    
+                })
+            }
+            else {
+                toast("Can't add , maybe some error occured")
+            }
         }
-        else {
-            toast("Can't add , maybe some error occured")
-        }
+
+        
     }
 
 
@@ -218,6 +223,7 @@ const Homepage = () => {
                             <h5 className="tripname text-center">{tripData.tripName}</h5>
                             <p className="tripid ">Trip ID : {tripData.tripID}</p>
                             <p className="tripbudget">Trip Budget : ₹{tripData.budgetTotal}</p>
+                            <p className="totalmem">Total Members : {tripData.users?.length}</p>
                             <hr />
                             <p className="username">Name : {mydata.name} </p>
                             <p className="emailid">{mydata.emailId}</p>
@@ -242,11 +248,11 @@ const Homepage = () => {
                         <div className="inputs m-4">
                             <div className="form-group">
                                 <label htmlFor="" >I have bought :</label>
-                                <input type="text" name='expenseTitle' onChange={onfilled} value={newtranDetails.expenseTitle} />
+                                <input type="text" name='expenseTitle' onChange={onfilled} value={newtranDetails.expenseTitle} required />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="" >Of amount</label>
-                                <input type="text" name='amount' onChange={onfilled} value={newtranDetails.amount} />
+                                <input type="text" name='amount' onChange={onfilled} value={newtranDetails.amount} required/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="" >And i am tagging </label>
@@ -275,7 +281,7 @@ const Homepage = () => {
                                     }
                                 </div>
                                 <div className='buttonbox'>
-                                    <button className='submitbutton' onClick={new_Transaction}>Submit</button>
+                                    <button className='submitbutton'  onClick={new_Transaction}>Submit</button>
                                 </div>
                             </div>
 

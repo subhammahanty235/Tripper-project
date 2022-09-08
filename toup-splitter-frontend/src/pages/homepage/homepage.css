@@ -7,11 +7,11 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
     background-color: #803be3;
-    
+
 
 }
 
-.nav{
+.nav {
     background-color: #35353f;
     width: 100vw;
     padding: 10px 0px;
@@ -20,11 +20,12 @@
     justify-content: space-between;
     position: relative;
     /* opacity: 0.9; */
-    
-    
-    
+
+
+
 }
-.logo{
+
+.logo {
     /* width: 100px; */
     /* height: 70px; */
     padding: 0px;
@@ -34,18 +35,19 @@
     color: dodgerblue;
     margin-left: 10px;
     font-size: 3rem;
-    
-    
+
+
 }
 
-.menu{
+.menu {
     color: #fff;
     padding: 0;
     margin: 0;
     margin-right: 10px;
     cursor: pointer;
 }
-.sub-menu-wrap{
+
+.sub-menu-wrap {
     position: absolute;
     top: 100%;
     right: 10px;
@@ -53,48 +55,54 @@
     max-height: 0px;
     overflow: hidden;
     transition: all 0.5s;
-    
+
     z-index: 100;
-    
+
 }
-.open-menu{
+
+.open-menu {
     max-height: 400px;
 }
-.sub-menu{
+
+.sub-menu {
     background-color: #f9f7fb;
     padding: 20px;
     margin: 10px;
     opacity: 0.9;
 
 }
-.tripid{
+
+.tripid {
     color: #1a1a1a;
     font-size: medium;
     font-weight: 500;
 }
-.username{
+
+.username {
     font-size: 15px;
     padding: 0px 0px;
     margin: 4px;
 }
-.emailid{
+
+.emailid {
     font-size: 15px;
     margin: 4px;
 }
-.Totalspent{
+
+.Totalspent {
     color: rgb(48, 48, 48);
     font-size: 15px;
     margin: 0;
 }
 
-.logoutbutton{
+.logoutbutton {
     margin-left: 90px;
 }
 
 .bodysection {
     height: calc(100vh - 70px);
 
-   
+
     display: flex;
     flex-wrap: wrap;
 
@@ -122,9 +130,9 @@
     background-color: rgba(184, 174, 174, 0.219);
     background: url('../../media/img1.png');
     background-size: cover;
-   
+
     border-radius: 20px;
-    
+
 
 
     box-shadow: 0 2px 15px rgb(140, 190, 239);
@@ -144,7 +152,7 @@
     scroll-behavior: smooth;
     border: 2px solid dodgerblue;
     border-radius: 10px;
-    
+
 }
 
 ::-webkit-scrollbar {
@@ -397,30 +405,34 @@
     border-radius: 8px;
 }
 
-@media screen and (max-width:1200px){
-    
-    .paidForm{
+@media screen and (max-width:1200px) {
+
+    .paidForm {
         width: 100%;
         height: 70vh;
     }
-    .allTripdetails{
+
+    .allTripdetails {
         width: 100%;
         height: 100vh;
     }
-    
+
 }
+
 @media screen and (max-width: 600px) {
     .cards {
-        height: 80%;
+        height: 80vh;
         width: 100%;
         /* border: 2px solid white; */
-    
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(1, 1fr);
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
-    
-    
+
+        display: flex;
+        flex-direction: column;
+        max-height: 100vh;
+
+
     }
+    .totalIPaid{
+        height: 100%;
+    }
+
 }

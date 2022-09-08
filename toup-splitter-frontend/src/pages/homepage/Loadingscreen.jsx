@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
-import Loading from '../../media/H0bB.gif'
+import Loading from '../../media/C1Ko.gif'
 import './loadingscreen.css'
 function Loadingscreen() {
     const[quote , setQuote] = useState("")
