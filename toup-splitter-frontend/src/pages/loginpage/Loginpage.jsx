@@ -10,10 +10,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Loginpage = () => {
     const navigate = useNavigate();
-    const [clickedregisterLink, setclickedregisterLink] = useState(false);
+    const [clickedregisterLink, setclickedregisterLink] = useState(window.innerWidth<=600 ? true : false);
+
+    
     const [loading, setLoading] = useState(false)
+
+    
+    
     const showhideclick = () => {
+        
         setclickedregisterLink(!clickedregisterLink)
+        
     }
     //    states to store user's inputs
     const [logintonewTrip, setLogIntoNewTrip] = useState({
@@ -86,15 +93,18 @@ const Loginpage = () => {
             body: JSON.stringify({ name: logintoexistingTrip.name, password: logintoexistingTrip.password, emailId: logintoexistingTrip.emailId, tripid: logintoexistingTrip.tripId })
 
         })
-
+        // console.log(response)
         const response_data = await response.json();
         // clear the form
-        if (response_data === 'wrong trip id') {
-            toast("Wrong Trip ID , please ReCheck")
+        console.log(response_data)
+        
+        if (response_data === false) {
             setLogIntoexistingTrip({
                 name: "", emailId: "", password: "", tripId: ""
-
+                
             })
+            console.log("wrong pw")
+            toast("Wrong Credentials , Try Again")
             setLoading(false)
         }
         else {
@@ -125,15 +135,16 @@ const Loginpage = () => {
 
 
     }
-
+   
     return (
         <>
             <div className="container  p-4">
+                <h4 className={`text-center ${clickedregisterLink === true? 'logoleft' : 'logoright'} `}><span className='text-light'>T</span>ripper</h4>
                 <div className="row main mt-5">
 
                     {/* <!-- sign up form --> */}
 
-                    <div className={`col-md-6 p-5 ${clickedregisterLink === true}?'d-block':'d-none' `} id="signUp">
+                    <div className={`col-md-6 p-5 ${clickedregisterLink === true} ?'d-block':'d-none'`}  id="signUp">
                         <h5 className="text-center header-text">Login and register new trip</h5>
                         <form className="d-flex justify-content-center mt-4">
                             <div className="w-75 ">
@@ -165,7 +176,7 @@ const Loginpage = () => {
                     {/* <!-- Login Form  --> */}
 
 
-                    <div className={`col-md-6 p-5 ${clickedregisterLink === true ? 'd-none' : 'd-block'}`} id="login">
+                    <div className={`col-md-6 p-5 ${clickedregisterLink === true ? 'd-none' : 'd-block'} `} id="login">
                         <h5 className=" text-center header-text">Login with existing trip id</h5>
                         <form className="d-flex justify-content-center mt-4">
                             <div className="w-75 ">

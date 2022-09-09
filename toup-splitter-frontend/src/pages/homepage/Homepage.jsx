@@ -292,7 +292,7 @@ const Homepage = () => {
                 </div>
                 <div className="allTripdetails">
                     <div className="mainsectionBudget">
-                        <div className="totaltripbudget"><h3>Total Trip Budget is : {tripData.budgetTotal}</h3></div>
+                        <div className="totaltripbudget"><h3>Total Trip Budget is : <span className='gree'>{tripData.budgetTotal}</span></h3></div>
                         <div className="cards">
                             <div className="totalIPaid">
                                 <div className="innerdivtotalIPaid">
@@ -396,7 +396,7 @@ const Homepage = () => {
                                             <th scope='col'>Pay/Paid</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody className='tbdy'>
 
                                         {
                                             mydata.expenseDetailstopay?.map((data) => {
@@ -446,7 +446,7 @@ const Homepage = () => {
                                             <th scope='col'>Date</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody className='tbdy'>
 
 
                                         {
@@ -497,7 +497,7 @@ const Homepage = () => {
                                             <th scope='col'>Date</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody className='tbdy'>
                                         {
                                             mydata.myPaymentsToOthers?.map((data) => {
                                                 return <tr>

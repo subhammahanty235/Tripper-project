@@ -6,7 +6,8 @@
     overflow-y: hidden;
     overflow-y: scroll;
     scroll-behavior: smooth;
-    background-color: #803be3;
+    /* background-color: #803be3; */
+    background-color: #BB86FC;
 
 
 }
@@ -25,6 +26,9 @@
 
 }
 
+.gree{
+    color:#1BA94C;
+}
 .logo {
     /* width: 100px; */
     /* height: 70px; */
@@ -32,7 +36,7 @@
     margin: 0px;
     font-family: 'Qwitcher Grypen', cursive;
     margin-top: -10px;
-    color: dodgerblue;
+    color: #1BA94C;
     margin-left: 10px;
     font-size: 3rem;
 
@@ -248,6 +252,7 @@
     font-weight: 600;
     color: #fff;
     border-radius: 20px;
+
 }
 
 .cards {
@@ -368,21 +373,35 @@
 }
 
 .modal-content {
-    background: url('../../media/modalimg1.png');
+    /* background: url('../../media/modalimg1.png'); */
+    background-color: #676770;
     background-size: cover;
     background-repeat: no-repeat;
+    color:#fff;
+}
+.table{
+    background-color: #001220;
+    color:#1BA94C;
+}
+.thead-light{
+    border: 2px solid #1BA94C;
 }
 
 .card {
     width: 100%;
     margin: 20px;
-    background-color: rgb(160, 160, 154);
+    /* background-color: rgb(160, 160, 154); */
+    background-color: #001220;
+    color: #1BA94C;
 }
 
 .card-body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+.tbdy{
+    color: #fff;
 }
 
 /* <-- first modal or my payments to other's modal */
@@ -395,6 +414,7 @@
     background-color: greenyellow;
     padding: 5px 10px;
     border-radius: 8px;
+    color: #fff;
 
 }
 
@@ -403,6 +423,7 @@
     background-color: rgb(238, 134, 134);
     padding: 5px 10px;
     border-radius: 8px;
+    color: #fff;
 }
 
 @media screen and (max-width:1200px) {
@@ -431,8 +452,16 @@
 
 
     }
+    .tagbox{
+        height: 150px;
+    }
     .totalIPaid{
         height: 100%;
     }
+    .totaltripbudget{
+        margin-top: 10px;
+        font-size: medium;
+    }
+
 
 }

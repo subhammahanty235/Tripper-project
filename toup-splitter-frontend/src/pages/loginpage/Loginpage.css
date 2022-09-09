@@ -1,23 +1,53 @@
 body{
     /* background-color: #4158D0; */
     /* background-image: linear-gradient(90deg,#4158D0 0% , #C850C0 46% , #FFCC70 100%); */
-    background-color: #010108;
+    background-color: #BB86FC;
     background-size: 100% 100%;
 }
 .header-text{
     color: #fff;
 }
 .main{
-    background-color: rgba(169, 164, 164, 0.219);
+    background-color: #35353f;
     backdrop-filter: blur(2px);
     border-radius: 25px;
+    color: #1BA94C;
+}
+.logoleft {
+    /* width: 100px; */
+    /* height: 70px; */
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Qwitcher Grypen', cursive;
+    margin-top: -10px;
+    color: dodgerblue;
+    transform: translate(0vw , 0);
+    font-size: 3rem;
+    position: absolute;
+
+
+}
+.logoright {
+    /* width: 100px; */
+    /* height: 70px; */
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Qwitcher Grypen', cursive;
+    margin-top: -10px;
+    color: dodgerblue;
+    transform: translate(74vw , 0);
+    font-size: 3rem;
+    position: absolute;
+
+
+
 }
 
 input{
     outline: none;
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid dodgerblue;
+    border-bottom: 2px solid #BB86FC;
     width: 100%;
     position: relative;
     bottom: 0px;
@@ -78,20 +108,49 @@ label{
 
 .overlay1{
     transform: translate(50vw , -25px) !important;
+    
 }
 .overlay2{
     transform: translate(0px , -25px) !important;
 }
-@media only screen and (max-width: 600px) {
-    body {
-        background-color: black;
-    }
-    #overlay, #signUp , .overlay1 , .overlay2{
+
+@media screen and (max-width: 1200px){
+    #overlay{
         display: none;
     }
-    
+    .main{
+        display: flex;
+        flex-direction: column;
+    }
+    #signUp{
+        width: 100vw;
+    }
+    #login{
+        width: 100vw;
+        display: none;
+    }
     .button{
-    margin-left: 65%;
+        margin-left: 50%;
+    }
+    .logo{
+        text-align: center !important;
+    }
+    
+}
+@media only screen and (max-width: 600px) {
+    .button{
+        margin-left: 30%;
+       
+    }
+    #login{
+        width: 100vw;
+        display: none;
+    }
 
+    .logoleft{
+        transform: translateX(100%);
+    }
+    .logoright{
+        transform: translateX(100%);
     }
 }
