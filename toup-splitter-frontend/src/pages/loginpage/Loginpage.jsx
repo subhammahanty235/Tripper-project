@@ -34,7 +34,7 @@ const Loginpage = () => {
     }
     const onExistingFilled = (e) => {
         setLogIntoexistingTrip({ ...logintoexistingTrip, [e.target.name]: e.target.value })
-    }
+    } 
     // functions to send data to backend
     const loginToNewTrip_func = async (e) => {
 

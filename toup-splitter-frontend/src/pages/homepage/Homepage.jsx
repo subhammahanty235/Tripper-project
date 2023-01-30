@@ -107,8 +107,8 @@ const Homepage = () => {
             setnewtranDetails({ expenseTitle: "", amount: 0 })
     
             if (res === true) {
-                toast("Sucessfully added")
-                toast("Paid sucessfully! Please Refresh")
+                // toast("Sucessfully added")
+                toast("Added Sucessfully! Please Refresh")
                 const res = await fetch(`${Api_Link}/sendmail`, {
                     method: 'POST',
                     headers: {
